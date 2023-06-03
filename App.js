@@ -9,5 +9,9 @@ const port = 3000;
 
 // app m agar ess port par koi communication hoti hai toh usko repond karna hai , 2 parameter pass karne hai listen function m first port number and second call back function 
 app.listen(port, ()=> {
-    console.log("app is started ")
+    console.log("app is started  ")
 })
+
+
+//adding middle-ware , it is parsing json
+app.use(express.json)
