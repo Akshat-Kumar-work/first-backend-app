@@ -12,6 +12,23 @@ app.listen(port, ()=> {
     console.log("app is started  ")
 })
 
+//creating get request
+//jab bhi home page vale route p aao toh response vale object m ek heading send kro
+app.get("/",(req,res)=>{
+    res.send(`<h1> this is heading mst</h1>`)
+})
+
+
+//creating post request
+app.post("/car" , (req , res)=>{
+    res.send("received a post request")
+})
+
+
+
+
 
 //adding middle-ware , it is parsing json
 app.use(express.json)
+
+
