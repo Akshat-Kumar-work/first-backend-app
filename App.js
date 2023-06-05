@@ -18,6 +18,25 @@ app.get("/",(request,response)=>{
     response.send(`<h1> this is heading mst</h1>`)
 })
 
+//body parser ko import krwadia
+//without body parser we are not able to get the data from req
+//used to parse the request body , we use it specifically in post or put cases 
+const bodyparser = require("body-parser");
+//specifically parse json data and add it to the req body object
+app.use(bodyparser.json())
+
+//creating post request
+app.post("/api/cars" , (req , res)=>{
+    //req ki body m se name aur brand destructuring karke nikal dia 
+    const {name , brand} = req.body;
+    console.log(name);
+    console.log(brand);
+    res.send("car submitted succesfully")
+})
+ 
+
+
+
 //creating post request
 app.post("/car" , (req , res)=>{
     res.send("received a post request")
@@ -25,6 +44,7 @@ app.post("/car" , (req , res)=>{
 
 
 //adding middle-ware , it is parsing json
+//y request ki body m se parsing karta hai
 app.use(express.json)
 
 
