@@ -30,3 +30,25 @@ app.listen(port, ()=> {
 step - 7 - to start the server use node filename.js command
 
 step - 8 - to end the started server use control c in terminal
+
+
+<h1>to connect mongodb database with server</h1>
+
+step -1 - install mongodb 
+
+step-2 - npm i mongoose (to install mongoose)
+
+step - 3- follow bellow command
+
+//mongoose ko import kia hai mongoose nam k variable m
+const mongoose = require('mongoose');
+//mongoose database ko connect kar rhe hai express k sath
+mongoose.connect('mongodb://0.0.0.0:27017/myDatabase',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+})
+
+//jab connection hojae
+.then( ()=>{console.log("database connected succesfully")})
+//agar error ajae
+.catch( (error)=>{console.log(error.message+"recieved an error while connecting with database")})

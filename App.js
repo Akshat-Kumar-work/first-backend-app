@@ -47,4 +47,15 @@ app.post("/car" , (req , res)=>{
 //y request ki body m se parsing karta hai
 app.use(express.json)
 
+//mongoose ko import kia hai mongoose nam k variable m
+const mongoose = require('mongoose');
+//mongoose database ko connect kar rhe hai express k sath
+mongoose.connect('mongodb://0.0.0.0:27017/myDatabase',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+})
 
+//jab connection hojae
+.then( ()=>{console.log("database connected succesfully")})
+//agar error ajae
+.catch( (error)=>{console.log(error.message+"recieved an error while connecting with database")})
